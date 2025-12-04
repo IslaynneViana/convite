@@ -1,0 +1,210 @@
+/* ===== BASE ===== */
+body {
+  margin: 0;
+  padding: 0;
+  background: #FFF8EC;
+  font-family: "Poppins", sans-serif;
+  color: #333;
+
+  /* Folhas laterais */
+  background-image:
+    url('folhas.png'), /* esquerda centro */
+    url('folhas.png'), /* direita centro */
+    url('folhas.png'), /* canto superior esquerdo */
+    url('folhas.png'), /* canto superior direito */
+    url('folhas.png'), /* canto inferior esquerdo */
+    url('folhas.png'); /* canto inferior direito */
+ /* Corrigido: 6 valores para 6 imagens */
+  background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat;
+  background-position:
+    left center,
+    right center,
+    left top,
+    right top,
+    left bottom,
+    right bottom;
+  background-size:
+    160px auto,
+    160px auto,
+    140px auto,
+    140px auto,
+    140px auto,
+    140px auto;
+}
+body {
+  margin: 0;
+  padding: 0;
+  background: #FFF8EC;
+  font-family: "Poppins", sans-serif;
+  color: #333;
+}
+
+img {
+  width: 100%;
+  display: block;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin: 20px 0;
+  color: #f4a300;
+}
+.section-title span {
+  color: #000;
+}
+
+/* ===== HERO ===== */
+.hero {
+  text-align: center;
+  position: relative;
+  padding-bottom: 20px;
+}
+.hero-img {
+  width: 100%;
+}
+.hero-title {
+  position: absolute;
+  bottom: 10px;
+  width: 100%;
+  color: white;
+  font-size: 1.6rem;
+  font-weight: 800;
+  text-shadow: 2px 2px 6px rgba(0,0,0,0.4);
+}
+
+/* ===== COUNTDOWN ===== */
+.countdown-container {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+.count-box {
+  background: white;
+  padding: 12px;
+  font-weight: 700;
+  border-radius: 10px;
+  width: 90px;
+  text-align: center;
+  border: 2px solid #f4a300;
+}
+.count-box span {
+  display: block;
+  font-size: 1.4rem;
+  color: #000;
+}
+
+.datetime-wrapper {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 5px;
+}
+.date-box {
+  background: white;
+  padding: 12px;
+  width: 130px;
+  border-radius: 10px;
+  text-align: center;
+  border: 2px solid #f4a300;
+}
+
+/* ===== PRESENÇA ===== */
+.presence-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 10px;
+}
+.btn {
+  padding: 10px 25px;
+  border-radius: 10px;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+  font-weight: 600;
+}
+.btn.yes {
+  background: #4CAF50;
+  color: white;
+}
+.btn.no {
+  background: #d9534f;
+  color: white;
+}
+.deadline {
+  text-align: center;
+  color: #f4a300;
+  font-weight: 700;
+  margin-top: 10px;
+}
+
+/* ===== LOCAL ===== */
+.local-section .address {
+  text-align: center;
+  background: white;
+  width: 85%;
+  margin: 10px auto;
+  padding: 12px;
+  border-radius: 12px;
+  border: 2px solid #f4a300;
+}
+.map-box {
+  width: 85%;
+  margin: 15px auto;
+}
+
+/* ===== CARDÁPIO ===== */
+.cardapio-box {
+  width: 85%;
+  margin: auto;
+  background: white;
+  padding: 15px;
+  text-align: center;
+  border-radius: 12px;
+  border: 2px solid #f4a300;
+  font-weight: 600;
+  line-height: 26px;
+}
+
+/* ===== ATRAÇÕES ===== */
+.atra-box {
+  width: 85%;
+  margin: auto;
+  text-align: center;
+}
+.atra-img {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  margin: auto;
+}
+.spotify-btn {
+  margin-top: 10px;
+  background: #1DB954;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* ===== INFO ===== */
+.info-grid {
+  display: flex;
+  width: 90%;
+  margin: auto;
+  gap: 20px;
+  justify-content: center;
+}
+.info-box {
+  flex: 1;
+  background: white;
+  padding: 15px;
+  border-radius: 12px;
+  border: 2px solid #f4a300;
+  text-align: center;
+}
