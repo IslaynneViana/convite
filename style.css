@@ -8,13 +8,12 @@ body {
 
   /* Folhas laterais */
   background-image:
-    url('folhas.png'), /* esquerda centro */
-    url('folhas.png'), /* direita centro */
-    url('folhas.png'), /* canto superior esquerdo */
-    url('folhas.png'), /* canto superior direito */
-    url('folhas.png'), /* canto inferior esquerdo */
-    url('folhas.png'); /* canto inferior direito */
- /* Corrigido: 6 valores para 6 imagens */
+    url('folhas.png'),
+    url('folhas.png'),
+    url('folhas.png'),
+    url('folhas.png'),
+    url('folhas.png'),
+    url('folhas.png');
   background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat;
   background-position:
     left center,
@@ -30,13 +29,6 @@ body {
     140px auto,
     140px auto,
     140px auto;
-}
-body {
-  margin: 0;
-  padding: 0;
-  background: #FFF8EC;
-  font-family: "Poppins", sans-serif;
-  color: #333;
 }
 
 img {
@@ -142,18 +134,53 @@ img {
 }
 
 /* ===== LOCAL ===== */
-.local-section .address {
+.local-section {
   text-align: center;
+  padding: 40px 20px;
+}
+
+.local-section .address {
   background: white;
   width: 85%;
   margin: 10px auto;
   padding: 12px;
   border-radius: 12px;
   border: 2px solid #f4a300;
+  font-size: 1.1rem;
+  color: #444;
 }
+
 .map-box {
   width: 85%;
   margin: 15px auto;
+}
+
+.map-container {
+  width: 100%;
+  height: 300px;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+  margin: 20px 0;
+}
+
+/* Botão Abrir no Google Maps */
+.open-maps-btn {
+  display: inline-block;
+  background: #ffcf5d;
+  color: #2a2a2a;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 12px 22px;
+  border-radius: 8px;
+  transition: 0.2s ease;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+}
+
+.open-maps-btn:hover {
+  background: #ffb833;
+  transform: translateY(-2px);
 }
 
 /* ===== CARDÁPIO ===== */
@@ -207,4 +234,80 @@ img {
   border-radius: 12px;
   border: 2px solid #f4a300;
   text-align: center;
+}
+.spotify-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background-color: #1DB954; /* cor do Spotify */
+  color: #fff;
+  text-decoration: none;
+  padding: 12px 20px;
+  border-radius: 30px;
+  font-weight: bold;
+  font-size: 16px;
+  width: fit-content;
+  transition: 0.3s ease;
+}
+
+.spotify-btn:hover {
+  background-color: #17a146;
+  transform: scale(1.05);
+}
+
+.spotify-icon {
+  width: 28px;
+  height: 28px;
+}
+/* ===== DECORAÇÃO DAS FOLHAS ===== */
+.folha {
+  position:relative;
+  z-index: -1;
+  pointer-events: none;
+  width: 180px;
+  opacity: 0.0;
+}
+
+/* LATERAL ESQUERDA (alternada) */
+.folha-esq1 { 
+  top: -10%;
+  left: 0;
+}
+.folha-esq2 {
+  top: 100%;
+  left: 0;
+}
+
+/* LATERAL DIREITA (alternada) */
+.folha-dir1 {
+  top: 35%;
+  right: 0;
+}
+.folha-dir2 {
+  top: 75%;
+  right: 0;
+}
+
+/* CANTOS SUPERIORES */
+.folha-top-left {
+  top: 0;
+  left: 0;
+  width: 160px;
+}
+.folha-top-right {
+  top: 0;
+  right: 0;
+  width: 160px;
+}
+
+/* CANTOS INFERIORES */
+.folha-bottom-left {
+  bottom: 0;
+  left: 10;
+  width: 150px;
+}
+.folha-bottom-right {
+  bottom: 0;
+  right:  0;
+  width: 150px;
 }
