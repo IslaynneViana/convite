@@ -5,34 +5,12 @@ body {
   background: #FFF8EC;
   font-family: "Poppins", sans-serif;
   color: #333;
-
-  /* Folhas laterais */
-  background-image:
-    url('folhas.png'),
-    url('folhas.png'),
-    url('folhas.png'),
-    url('folhas.png'),
-    url('folhas.png'),
-    url('folhas.png');
-  background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat;
-  background-position:
-    left center,
-    right center,
-    left top,
-    right top,
-    left bottom,
-    right bottom;
-  background-size:
-    160px auto,
-    160px auto,
-    140px auto,
-    140px auto,
-    140px auto,
-    140px auto;
+  position: relative;
+  overflow-x: hidden;
 }
 
 img {
-  width: 100%;
+  max-width: 100%;
   display: block;
 }
 
@@ -43,8 +21,75 @@ img {
   margin: 20px 0;
   color: #f4a300;
 }
+
 .section-title span {
   color: #000;
+}
+
+/* ===== FOLHAS DECORATIVAS ===== */
+.folha {
+  position: absolute;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 100;
+}
+
+/* Folhas laterais esquerdas */
+.folha-esq1 { 
+  top: 50%; 
+  left: 30; 
+  width: 220px;
+  transform: translateY(-50%);
+}
+
+.folha-esq2 { 
+  top: 85%; 
+  left: 0; 
+  width: 220px;
+}
+
+/* Folhas laterais direitas */
+.folha-dir1 { 
+  top: 35%; 
+  right: 0; 
+  width: 220px;
+  transform: scaleX(-1);
+}
+
+.folha-dir2 { 
+  top: 75%; 
+  right: 0; 
+  width: 220px;
+  transform: scaleX(-1);
+}
+
+/* Folhas nos cantos superiores */
+.folha-top-left { 
+  top: -70px; 
+  left: -110px; 
+  width: 320px;
+}
+
+.folha-top-right { 
+  top: -70px; 
+  right: -110px; 
+  width: 320px;
+  transform: scaleX(-1);
+}
+
+
+/* Folhas nos cantos inferiores */
+.folha-bottom-left { 
+  bottom: 0; 
+  left: 0; 
+  width: 220px;
+}
+
+.folha-bottom-right { 
+  bottom: 0; 
+  right: 0; 
+  width: 0px;
+  transform: scaleX(-1);
 }
 
 /* ===== HERO ===== */
@@ -53,9 +98,11 @@ img {
   position: relative;
   padding-bottom: 20px;
 }
+
 .hero-img {
   width: 100%;
 }
+
 .hero-title {
   position: absolute;
   bottom: 10px;
@@ -66,13 +113,37 @@ img {
   text-shadow: 2px 2px 6px rgba(0,0,0,0.4);
 }
 
+/* ===== FRASE CURVADA ===== */
+.frase-curvada {
+  width: 100%;
+  margin-top: -10px;
+  margin-bottom: 20px;
+}
+
+.frase-curvada svg {
+  width: 300px;
+  display: block;
+  margin: auto;
+}
+
+.frase-curvada text {
+  fill: #f4a300;
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
 /* ===== COUNTDOWN ===== */
+.countdown-section {
+  padding: 20px;
+}
+
 .countdown-container {
   display: flex;
   justify-content: center;
   gap: 10px;
   margin-bottom: 15px;
 }
+
 .count-box {
   background: white;
   padding: 12px;
@@ -82,6 +153,7 @@ img {
   text-align: center;
   border: 2px solid #f4a300;
 }
+
 .count-box span {
   display: block;
   font-size: 1.4rem;
@@ -94,6 +166,7 @@ img {
   gap: 15px;
   margin-top: 5px;
 }
+
 .date-box {
   background: white;
   padding: 12px;
@@ -104,12 +177,17 @@ img {
 }
 
 /* ===== PRESENÇA ===== */
+.presence-section {
+  padding: 20px;
+}
+
 .presence-buttons {
   display: flex;
   justify-content: center;
   gap: 15px;
   margin-top: 10px;
 }
+
 .btn {
   padding: 10px 25px;
   border-radius: 10px;
@@ -118,14 +196,17 @@ img {
   cursor: pointer;
   font-weight: 600;
 }
+
 .btn.yes {
   background: #4CAF50;
   color: white;
 }
+
 .btn.no {
   background: #d9534f;
   color: white;
 }
+
 .deadline {
   text-align: center;
   color: #f4a300;
@@ -164,26 +245,11 @@ img {
   margin: 20px 0;
 }
 
-/* Botão Abrir no Google Maps */
-.open-maps-btn {
-  display: inline-block;
-  background: #ffcf5d;
-  color: #2a2a2a;
-  text-decoration: none;
-  font-size: 1rem;
-  font-weight: 600;
-  padding: 12px 22px;
-  border-radius: 8px;
-  transition: 0.2s ease;
-  box-shadow: 0 3px 10px rgba(0,0,0,0.08);
-}
-
-.open-maps-btn:hover {
-  background: #ffb833;
-  transform: translateY(-2px);
-}
-
 /* ===== CARDÁPIO ===== */
+.cardapio-section {
+  padding: 20px;
+}
+
 .cardapio-box {
   width: 85%;
   margin: auto;
@@ -197,117 +263,83 @@ img {
 }
 
 /* ===== ATRAÇÕES ===== */
+.atracoes-section {
+  padding: 20px;
+}
+
 .atra-box {
   width: 85%;
   margin: auto;
   text-align: center;
 }
+
 .atra-img {
   width: 180px;
   height: 180px;
   border-radius: 50%;
   margin: auto;
 }
-.spotify-btn {
-  margin-top: 10px;
-  background: #1DB954;
-  color: white;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 10px;
-  font-weight: 600;
-  cursor: pointer;
+
+.atra-desc {
+  margin: 15px 0;
 }
 
-/* ===== INFO ===== */
-.info-grid {
+.spotify-btn {
   display: flex;
-  width: 90%;
-  margin: auto;
-  gap: 20px;
+  align-items: center;
   justify-content: center;
+  gap: 10px;
+  background-color: #000000;
+  color: #fff;
+  text-decoration: none;
+  padding: 9px 60px;
+  border-radius: 30px;
+  font-weight: bold;
+  font-size: 16px;
+  width: fit-content;
+  transition: 0.3s ease;
+  margin: 10px auto; 
 }
+
+.spotify-btn:hover {
+  background-color: #1b5e31;
+  transform: scale(1.05);
+}
+
+.spotify-icon {
+  width: 90px;
+  height: 27px; 
+}
+
+/* ===== INFO ADICIONAL ===== */
+.info-section {
+  padding: 20px;
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 15px;
+  width: 85%;
+  margin: 20px auto;
+}
+
 .info-box {
-  flex: 1;
   background: white;
   padding: 15px;
   border-radius: 12px;
   border: 2px solid #f4a300;
   text-align: center;
 }
-.spotify-btn {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  background-color: #1DB954; /* cor do Spotify */
-  color: #fff;
-  text-decoration: none;
-  padding: 12px 20px;
-  border-radius: 30px;
-  font-weight: bold;
-  font-size: 16px;
-  width: fit-content;
-  transition: 0.3s ease;
+
+.info-box h3 {
+  color: #f4a300;
+  margin-top: 0;
 }
 
-.spotify-btn:hover {
-  background-color: #17a146;
-  transform: scale(1.05);
-}
-
-.spotify-icon {
-  width: 28px;
-  height: 28px;
-}
-/* ===== DECORAÇÃO DAS FOLHAS ===== */
-.folha {
-  position:relative;
-  z-index: -1;
-  pointer-events: none;
-  width: 180px;
-  opacity: 0.0;
-}
-
-/* LATERAL ESQUERDA (alternada) */
-.folha-esq1 { 
-  top: -10%;
-  left: 0;
-}
-.folha-esq2 {
-  top: 100%;
-  left: 0;
-}
-
-/* LATERAL DIREITA (alternada) */
-.folha-dir1 {
-  top: 35%;
-  right: 0;
-}
-.folha-dir2 {
-  top: 75%;
-  right: 0;
-}
-
-/* CANTOS SUPERIORES */
-.folha-top-left {
-  top: 0;
-  left: 0;
-  width: 160px;
-}
-.folha-top-right {
-  top: 0;
-  right: 0;
-  width: 160px;
-}
-
-/* CANTOS INFERIORES */
-.folha-bottom-left {
-  bottom: 0;
-  left: 10;
-  width: 150px;
-}
-.folha-bottom-right {
-  bottom: 0;
-  right:  0;
-  width: 150px;
+/* ===== RESPONSIVO ===== */
+@media (min-width: 600px) {
+  .info-grid {
+    grid-template-columns: 1fr 1fr;
+  }
 }
