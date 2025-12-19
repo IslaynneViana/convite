@@ -7,7 +7,13 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Jomhuria&display=swap');
 
-html, body { 
+html {
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  overflow-x: hidden;
+}
+
+body { 
   background: #FFF8EC; 
   font-family: "Jomhuria"; 
   color: #333; 
@@ -19,6 +25,8 @@ html, body {
   width: 100%; 
   -webkit-text-size-adjust: 100%;
   -webkit-font-smoothing: antialiased;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior-y: none;
 }
 
 .jomhuria-regular {
@@ -63,6 +71,9 @@ img {
   z-index: 2;
   width: 180px;
   overflow: hidden;
+  will-change: transform;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
 }
 
 .folha-esq1 {
@@ -148,6 +159,9 @@ img {
   z-index: 1;
   opacity: 1;
   pointer-events: none;
+  will-change: transform;
+  -webkit-transform: translateZ(0) translateX(-50%);
+  transform: translateZ(0) translateX(-50%);
 }
 
 /* ===== SELO (texto + imagem) ===== */
@@ -161,6 +175,9 @@ img {
   align-items: center;
   justify-content: center;
   gap: 15px;
+  will-change: transform;
+  -webkit-transform: translateZ(0) translateX(-50%);
+  transform: translateZ(0) translateX(-50%);
 }
 
 .selo svg {
@@ -503,7 +520,7 @@ img {
 .info-grid::before {
   content: "";
   position: absolute;
-  left: 50%;
+  left: 60%;
   top: 0;
   bottom: 0;
   width: 1px;
@@ -792,13 +809,823 @@ img {
 
 /* ===== iOS ESPECÍFICO ===== */
 @supports (-webkit-touch-callout: none) {
+  * {
+    -webkit-overflow-scrolling: touch;
+  }
+
+  html {
+    -webkit-overflow-scrolling: touch;
+    overflow-y: scroll;
+  }
+
   body {
     -webkit-overflow-scrolling: touch;
+    overflow-y: scroll;
+    overscroll-behavior: none;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
   }
 
   .nome-input,
   .btn {
     -webkit-appearance: none;
     appearance: none;
+  }
+
+  /* Remove bounce effect no iOS */
+  body,
+  html {
+    position: fixed;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+  }
+
+  body {
+    position: relative;
+    overflow-y: auto;
+    overflow-x: hidden;
+    height: 100vh;
+  }
+}
+
+/* ===== iPHONE SE (375x667) ===== */
+@media only screen 
+  and (device-width: 375px) 
+  and (device-height: 667px) 
+  and (-webkit-device-pixel-ratio: 2) {
+  
+  body {
+    padding-top: 280px;
+  }
+
+  .fundo-destaque {
+    width: 240%;
+    top: -90px;
+    max-height: 480px;
+  }
+
+  .selo {
+    top: 85px;
+    gap: 8px;
+  }
+
+  .selo svg {
+    width: 200px !important;
+  }
+
+  .cerveja-esq,
+  .cerveja-dir {
+    width: 28px;
+  }
+
+  .count-box {
+    width: 68px;
+    padding: 10px;
+  }
+
+  .count-box span {
+    font-size: 1.2rem;
+  }
+
+  .countdown-container {
+    gap: 6px;
+  }
+
+  .date-box {
+    width: 135px;
+    padding: 8px;
+  }
+
+  .folha {
+    width: 120px;
+  }
+
+  .folha-esq1 {
+    top: 0%;
+    left: -45px;
+  }
+
+  .folha-esq2 {
+    top: 34%;
+    left: -60px;
+  }
+
+  .folha-dir1 {
+    top: 0%;
+    right: -35px;
+  }
+
+  .folha-dir2 {
+    top: 75%;
+    right: -65px;
+  }
+
+  .folha-top-left {
+    top: 380px;
+    left: -60px;
+  }
+
+  .folha-top-right {
+    top: 680px;
+    right: -60px;
+  }
+
+  .folha-bottom-left {
+    top: 1550px;
+    left: -58px;
+  }
+
+  .folha-bottom-right {
+    top: 1280px;
+    right: -60px;
+  }
+
+  .folha-bottom-l {
+    top: 2420px;
+    left: -35px;
+  }
+
+  .folha-bottom-r {
+    top: 2420px;
+    right: -35px;
+  }
+}
+
+/* ===== iPHONE 8, SE 2020/2022 (375x667) - Landscape ===== */
+@media only screen 
+  and (device-width: 375px) 
+  and (device-height: 667px) 
+  and (orientation: landscape) {
+  
+  body {
+    padding-top: 200px;
+  }
+
+  .selo {
+    top: 70px;
+  }
+
+  .countdown-section {
+    padding-top: 30px;
+  }
+}
+
+/* ===== iPHONE X, XS, 11 Pro, 12 Mini, 13 Mini (375x812) ===== */
+@media only screen 
+  and (device-width: 375px) 
+  and (device-height: 812px) 
+  and (-webkit-device-pixel-ratio: 3) {
+  
+  body {
+    padding-top: 290px;
+  }
+
+  .fundo-destaque {
+    width: 245%;
+    top: -95px;
+    max-height: 490px;
+  }
+
+  .selo {
+    top: 90px;
+    gap: 9px;
+  }
+
+  .selo svg {
+    width: 210px !important;
+  }
+
+  .cerveja-esq,
+  .cerveja-dir {
+    width: 29px;
+  }
+
+  .count-box {
+    width: 70px;
+    padding: 10px;
+  }
+
+  .countdown-container {
+    gap: 7px;
+  }
+
+  .date-box {
+    width: 140px;
+    padding: 9px;
+  }
+
+  .folha {
+    width: 130px;
+  }
+
+  .folha-esq1 {
+    top: 0%;
+    left: -48px;
+  }
+
+  .folha-esq2 {
+    top: 30%;
+    left: -65px;
+  }
+
+  .folha-dir1 {
+    top: 0%;
+    right: -38px;
+  }
+
+  .folha-dir2 {
+    top: 68%;
+    right: -68px;
+  }
+
+  .folha-top-left {
+    top: 390px;
+    left: -65px;
+  }
+
+  .folha-top-right {
+    top: 690px;
+    right: -65px;
+  }
+
+  .folha-bottom-left {
+    top: 1580px;
+    left: -63px;
+  }
+
+  .folha-bottom-right {
+    top: 1300px;
+    right: -65px;
+  }
+
+  .folha-bottom-l {
+    top: 2460px;
+    left: -38px;
+  }
+
+  .folha-bottom-r {
+    top: 2460px;
+    right: -38px;
+  }
+}
+
+/* ===== iPHONE XR, 11 (414x896) ===== */
+@media only screen 
+  and (device-width: 414px) 
+  and (device-height: 896px) 
+  and (-webkit-device-pixel-ratio: 2) {
+  
+  body {
+    padding-top: 300px;
+  }
+
+  .fundo-destaque {
+    width: 250%;
+    top: -100px;
+    max-height: 500px;
+  }
+
+  .selo {
+    top: 95px;
+    gap: 10px;
+  }
+
+  .selo svg {
+    width: 220px !important;
+  }
+
+  .cerveja-esq,
+  .cerveja-dir {
+    width: 30px;
+  }
+
+  .count-box {
+    width: 75px;
+    padding: 11px;
+  }
+
+  .countdown-container {
+    gap: 8px;
+  }
+
+  .date-box {
+    width: 145px;
+    padding: 10px;
+  }
+
+  .folha {
+    width: 135px;
+  }
+
+  .folha-esq1 {
+    top: 0%;
+    left: -50px;
+  }
+
+  .folha-esq2 {
+    top: 32%;
+    left: -68px;
+  }
+
+  .folha-dir1 {
+    top: 0%;
+    right: -40px;
+  }
+
+  .folha-dir2 {
+    top: 72%;
+    right: -72px;
+  }
+
+  .folha-top-left {
+    top: 395px;
+    left: -68px;
+  }
+
+  .folha-top-right {
+    top: 695px;
+    right: -68px;
+  }
+
+  .folha-bottom-left {
+    top: 1590px;
+    left: -66px;
+  }
+
+  .folha-bottom-right {
+    top: 1310px;
+    right: -68px;
+  }
+
+  .folha-bottom-l {
+    top: 2480px;
+    left: -40px;
+  }
+
+  .folha-bottom-r {
+    top: 2480px;
+    right: -40px;
+  }
+}
+
+/* ===== iPHONE XS Max, 11 Pro Max (414x896) ===== */
+@media only screen 
+  and (device-width: 414px) 
+  and (device-height: 896px) 
+  and (-webkit-device-pixel-ratio: 3) {
+  
+  body {
+    padding-top: 300px;
+  }
+
+  .fundo-destaque {
+    width: 250%;
+    top: -100px;
+    max-height: 500px;
+  }
+
+  .selo {
+    top: 95px;
+    gap: 10px;
+  }
+
+  .selo svg {
+    width: 220px !important;
+  }
+
+  .cerveja-esq,
+  .cerveja-dir {
+    width: 30px;
+  }
+
+  .count-box {
+    width: 76px;
+    padding: 11px;
+  }
+
+  .countdown-container {
+    gap: 8px;
+  }
+
+  .date-box {
+    width: 146px;
+    padding: 10px;
+  }
+
+  .folha {
+    width: 136px;
+  }
+}
+
+/* ===== iPHONE 12, 12 Pro, 13, 13 Pro, 14, 14 Pro (390x844) ===== */
+@media only screen 
+  and (device-width: 390px) 
+  and (device-height: 844px) 
+  and (-webkit-device-pixel-ratio: 3) {
+  
+  body {
+    padding-top: 295px;
+  }
+
+  .fundo-destaque {
+    width: 248%;
+    top: -98px;
+    max-height: 495px;
+  }
+
+  .selo {
+    top: 92px;
+    gap: 9px;
+  }
+
+  .selo svg {
+    width: 215px !important;
+  }
+
+  .cerveja-esq,
+  .cerveja-dir {
+    width: 29px;
+  }
+
+  .count-box {
+    width: 72px;
+    padding: 10px;
+  }
+
+  .count-box span {
+    font-size: 1.3rem;
+  }
+
+  .countdown-container {
+    gap: 7px;
+  }
+
+  .date-box {
+    width: 142px;
+    padding: 9px;
+  }
+
+  .folha {
+    width: 132px;
+  }
+
+  .folha-esq1 {
+    top: 0%;
+    left: -49px;
+  }
+
+  .folha-esq2 {
+    top: 31%;
+    left: -67px;
+  }
+
+  .folha-dir1 {
+    top: 0%;
+    right: -39px;
+  }
+
+  .folha-dir2 {
+    top: 70%;
+    right: -70px;
+  }
+
+  .folha-top-left {
+    top: 392px;
+    left: -67px;
+  }
+
+  .folha-top-right {
+    top: 692px;
+    right: -67px;
+  }
+
+  .folha-bottom-left {
+    top: 1585px;
+    left: -65px;
+  }
+
+  .folha-bottom-right {
+    top: 1305px;
+    right: -67px;
+  }
+
+  .folha-bottom-l {
+    top: 2470px;
+    left: -39px;
+  }
+
+  .folha-bottom-r {
+    top: 2470px;
+    right: -39px;
+  }
+}
+
+/* ===== iPHONE 12 Pro Max, 13 Pro Max, 14 Plus (428x926) ===== */
+@media only screen 
+  and (device-width: 428px) 
+  and (device-height: 926px) 
+  and (-webkit-device-pixel-ratio: 3) {
+  
+  body {
+    padding-top: 310px;
+  }
+
+  .fundo-destaque {
+    width: 255%;
+    top: -105px;
+    max-height: 510px;
+  }
+
+  .selo {
+    top: 98px;
+    gap: 11px;
+  }
+
+  .selo svg {
+    width: 230px !important;
+  }
+
+  .cerveja-esq,
+  .cerveja-dir {
+    width: 32px;
+  }
+
+  .count-box {
+    width: 78px;
+    padding: 12px;
+  }
+
+  .count-box span {
+    font-size: 1.35rem;
+  }
+
+  .countdown-container {
+    gap: 9px;
+  }
+
+  .date-box {
+    width: 150px;
+    padding: 10px;
+  }
+
+  .folha {
+    width: 145px;
+  }
+
+  .folha-esq1 {
+    top: 0%;
+    left: -52px;
+  }
+
+  .folha-esq2 {
+    top: 33%;
+    left: -72px;
+  }
+
+  .folha-dir1 {
+    top: 0%;
+    right: -42px;
+  }
+
+  .folha-dir2 {
+    top: 74%;
+    right: -76px;
+  }
+
+  .folha-top-left {
+    top: 405px;
+    left: -72px;
+  }
+
+  .folha-top-right {
+    top: 705px;
+    right: -72px;
+  }
+
+  .folha-bottom-left {
+    top: 1605px;
+    left: -70px;
+  }
+
+  .folha-bottom-right {
+    top: 1325px;
+    right: -72px;
+  }
+
+  .folha-bottom-l {
+    top: 2500px;
+    left: -42px;
+  }
+
+  .folha-bottom-r {
+    top: 2500px;
+    right: -42px;
+  }
+}
+
+/* ===== iPHONE 14 Pro Max, 15 Pro Max (430x932) ===== */
+@media only screen 
+  and (device-width: 430px) 
+  and (device-height: 932px) 
+  and (-webkit-device-pixel-ratio: 3) {
+  
+  body {
+    padding-top: 312px;
+  }
+
+  .fundo-destaque {
+    width: 256%;
+    top: -106px;
+    max-height: 512px;
+  }
+
+  .selo {
+    top: 99px;
+    gap: 11px;
+  }
+
+  .selo svg {
+    width: 232px !important;
+  }
+
+  .cerveja-esq,
+  .cerveja-dir {
+    width: 32px;
+  }
+
+  .count-box {
+    width: 79px;
+    padding: 12px;
+  }
+
+  .count-box span {
+    font-size: 1.36rem;
+  }
+
+  .countdown-container {
+    gap: 9px;
+  }
+
+  .date-box {
+    width: 151px;
+    padding: 10px;
+  }
+
+  .folha {
+    width: 146px;
+  }
+
+  .folha-esq1 {
+    top: 0%;
+    left: -53px;
+  }
+
+  .folha-esq2 {
+    top: 33%;
+    left: -73px;
+  }
+
+  .folha-dir1 {
+    top: 0%;
+    right: -43px;
+  }
+
+  .folha-dir2 {
+    top: 74%;
+    right: -77px;
+  }
+
+  .folha-top-left {
+    top: 406px;
+    left: -73px;
+  }
+
+  .folha-top-right {
+    top: 706px;
+    right: -73px;
+  }
+
+  .folha-bottom-left {
+    top: 1608px;
+    left: -71px;
+  }
+
+  .folha-bottom-right {
+    top: 1328px;
+    right: -73px;
+  }
+
+  .folha-bottom-l {
+    top: 2505px;
+    left: -43px;
+  }
+
+  .folha-bottom-r {
+    top: 2505px;
+    right: -43px;
+  }
+}
+
+/* ===== iPHONE 15, 15 Pro (393x852) ===== */
+@media only screen 
+  and (device-width: 393px) 
+  and (device-height: 852px) 
+  and (-webkit-device-pixel-ratio: 3) {
+  
+  body {
+    padding-top: 297px;
+  }
+
+  .fundo-destaque {
+    width: 249%;
+    top: -99px;
+    max-height: 497px;
+  }
+
+  .selo {
+    top: 93px;
+    gap: 10px;
+  }
+
+  .selo svg {
+    width: 217px !important;
+  }
+
+  .cerveja-esq,
+  .cerveja-dir {
+    width: 30px;
+  }
+
+  .count-box {
+    width: 73px;
+    padding: 11px;
+  }
+
+  .count-box span {
+    font-size: 1.32rem;
+  }
+
+  .countdown-container {
+    gap: 7px;
+  }
+
+  .date-box {
+    width: 143px;
+    padding: 9px;
+  }
+
+  .folha {
+    width: 133px;
+  }
+
+  .folha-esq1 {
+    top: 0%;
+    left: -49px;
+  }
+
+  .folha-esq2 {
+    top: 31%;
+    left: -67px;
+  }
+
+  .folha-dir1 {
+    top: 0%;
+    right: -39px;
+  }
+
+  .folha-dir2 {
+    top: 71%;
+    right: -71px;
+  }
+
+  .folha-top-left {
+    top: 393px;
+    left: -67px;
+  }
+
+  .folha-top-right {
+    top: 693px;
+    right: -67px;
+  }
+
+  .folha-bottom-left {
+    top: 1587px;
+    left: -65px;
+  }
+
+  .folha-bottom-right {
+    top: 1307px;
+    right: -67px;
+  }
+
+  .folha-bottom-l {
+    top: 2473px;
+    left: -39px;
+  }
+
+  .folha-bottom-r {
+    top: 2473px;
+    right: -39px;
   }
 }
