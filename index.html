@@ -2,174 +2,293 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
   <title>Feijoada entre Amigos</title>
+
+  <!-- CSS -->
   <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
-<!-- ===== FOLHAS DECORATIVAS ===== -->
-<img src="img/folhas.png" class="folha folha-esq1" alt="">
-<img src="img/folhas.png" class="folha folha-esq2" alt="">
 
-<img src="img/folhas.png" class="folha folha-dir1" alt="">
-<img src="img/folhas.png" class="folha folha-dir2" alt="">
+  <!-- ===== FOLHAS DECORATIVAS ===== -->
+  <img src="img/folhas.png" class="folha folha-top-left" alt="">
+  <img src="img/folhas.png" class="folha folha-top-right" alt="">
+  <img src="img/folhas.png" class="folha folha-esq1" alt="">
+  <img src="img/folhas.png" class="folha folha-esq2" alt="">
+  <img src="img/folhas.png" class="folha folha-dir1" alt="">
+  <img src="img/folhas.png" class="folha folha-dir2" alt="">
+  <img src="img/folhas.png" class="folha folha-bottom-left" alt="">
+  <img src="img/folhas.png" class="folha folha-bottom-right" alt="">
+  <img src="img/folhas.png" class="folha folha-bottom-l" alt="">
+  <img src="img/folhas.png" class="folha folha-bottom-r" alt="">
 
-<img src="img/folhas.png" class="folha folha-top-left" alt="">
-<img src="img/folhas.png" class="folha folha-top-right" alt="">
+  <!-- IMAGEM DE FUNDO DE DESTAQUE -->
+  <img src="img/forma_geometrica.png" alt="" class="fundo-destaque">
 
-<img src="img/folhas.png" class="folha folha-bottom-left" alt="">
-<img src="img/folhas.png" class="folha folha-bottom-right" alt="">
+  <!-- SELO (texto + imagem redonda) -->
+  <div class="selo">
+    <!-- Cerveja Esquerda -->
+    <img src="img/cerveja.png" class="cerveja-esq" alt="Cerveja">
+    
+    <svg viewBox="0 0 300 300">
 
-<!-- ===== HERO ===== -->
-<header class="hero">
-  <img src="topo.png" alt="Convite" class="hero-img" />
-  <h1 class="hero-title">Feijoada entre amigos<br>22 anos do Abias</h1>
-</header>
+      <defs>
+        <!-- Círculo para texto superior (curvado para baixo) -->
+        <path
+          id="circulo-cima"
+          d="M 150,150
+             m -120,0
+             a 120,120 0 0,1 240,0"
+        />
 
-<!-- ===== FRASE CURVADA ===== -->
-<div class="frase-curvada">
-  <svg viewBox="0 0 300 150">
-    <defs>
-      <path id="curva" d="M 20 120 Q 150 10 280 120" />
-    </defs>
-    <text>
-      <textPath href="#curva" startOffset="50%" text-anchor="middle">
-        Feijoada, amigos e muita alegria!
-      </textPath>
-    </text>
-  </svg>
-</div>
+        <!-- Círculo para texto inferior (curvado para cima) -->
+        <path
+          id="circulo-baixo"
+          d="M 150,150
+             m -120,0
+             a 120,120 0 0,0 240,0"
+        />
 
-<!-- ===== COUNTDOWN ===== -->
-<section class="countdown-section">
-  <h2 class="section-title">Contagem <span>Regressiva</span></h2>
+        <clipPath id="foto-redonda">
+          <circle cx="150" cy="150" r="65" />
+        </clipPath>
+      </defs>
 
-  <div class="countdown-container">
-    <div class="count-box"><span id="days">00</span> dias</div>
-    <div class="count-box"><span id="hours">00</span> horas</div>
-    <div class="count-box"><span id="minutes">00</span> minutos</div>
-    <div class="count-box"><span id="seconds">00</span> segundos</div>
+      <!-- Texto superior curvado para baixo -->
+      <text class="texto-cima">
+        <textPath href="#circulo-cima" startOffset="50%" text-anchor="middle">
+          Feijoada entre amigos
+        </textPath>
+      </text>
+
+      <!-- Texto inferior curvado para cima -->
+      <text class="texto-baixo">
+        <textPath href="#circulo-baixo" startOffset="50%" text-anchor="middle">
+          22 anos do Abias
+        </textPath>
+      </text>
+      
+      <!-- Foto redonda no centro -->
+      <image
+        href="img/foto.png"
+        x="85"
+        y="85"
+        width="130"
+        height="130"
+        clip-path="url(#foto-redonda)"
+      />
+    </svg>
+    
+    <!-- Cerveja Direita -->
+    <img src="img/cerveja.png" class="cerveja-dir" alt="Cerveja">
   </div>
 
-  <div class="datetime-wrapper">
-    <div class="date-box"><h3>DATA</h3><p>11 de janeiro de 2026</p></div>
-    <div class="date-box"><h3>HORA</h3><p>12:00H</p></div>
-  </div>
-</section>
+  <!-- ===== COUNTDOWN ===== -->
+  <section class="countdown-section">
+    <h2 class="section-title">Contagem <span>Regressiva</span></h2>
 
-<!-- ===== PRESENÇA ===== -->
-<section class="presence-section">
-  <h2 class="section-title">Confirme sua <span>Presença</span></h2>
-
-  <div class="presence-buttons">
-    <button class="btn yes">Vou</button>
-    <button class="btn no">Não vou</button>
-  </div>
-
-  <p class="deadline">Confirmação até dia 20/12</p>
-</section>
-
-<!-- ===== LOCAL ===== -->
-<section class="local-section">
-  <h2 class="section-title">Local</h2>
-
-  <p class="address">R. Parnaríba, SN – Ponta do Farol, São Luís – MA</p>
-
-  <div class="map-box">
-    <div class="map-container">
-      <iframe 
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6352.764447270472!2d-44.2917404!3d-2.4909685!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7f68c49a22e75b5%3A0x608fb79eee1a79!2sVivendas%20Ponta%20do%20Farol!5e1!3m2!1spt-BR!2sbr!4v1764935699305!5m2!1spt-BR!2sbr" 
-        width="100%" 
-        height="300" 
-        style="border:0;" 
-        allowfullscreen 
-        loading="lazy">
-      </iframe>
+    <div class="countdown-container">
+      <div class="count-box"><span id="days">00</span> dias</div>
+      <div class="count-box"><span id="hours">00</span> horas</div>
+      <div class="count-box"><span id="minutes">00</span> min</div>
+      <div class="count-box"><span id="seconds">00</span> seg</div>
     </div>
-  </div>
-</section>
 
-<!-- ===== CARDÁPIO ===== -->
-<section class="cardapio-section">
-  <h2 class="section-title">Cardápio</h2>
-  <div class="cardapio-box">
-    <p>Feijoada<br>Arroz<br>Farofa<br>Caldinho</p>
-  </div>
-</section>
+    <div class="datetime-wrapper">
+      <div class="date-box">
+        <h3>DATA</h3>
+        <p>09 de janeiro de 2026</p>
+      </div>
+      <div class="date-box">
+        <h3>HORA</h3>
+        <p>20:00H</p>
+      </div>
+    </div>
+  </section>
 
-<!-- ===== ATRAÇÕES ===== -->
-<section class="atracoes-section">
-  <h2 class="section-title">Atrações</h2>
+  <!-- ===== PRESENÇA ===== -->
+  <section class="presence-section">
+    <h2 class="section-title">Confirme sua <span>Presença</span></h2>
 
-  <div class="atra-box">
-    <img src="img/artista.png" class="atra-img" alt="Artista" />
+    <!-- Input para nome -->
+    <div class="nome-input-wrapper">
+      <input 
+        type="text" 
+        id="nomeConvidado" 
+        class="nome-input" 
+        placeholder="Digite seu nome completo"
+      />
+      <p class="aviso" id="aviso">Por favor, digite seu nome antes de confirmar!</p>
+    </div>
 
-    <p class="atra-desc">
-      Quer conferir nossa playlist?<br>
-      Disponível também no Spotify!
+    <div class="presence-buttons">
+      <button class="btn yes" onclick="confirmarPresenca(true)">Vou</button>
+      <button class="btn no" onclick="confirmarPresenca(false)">Não vou</button>
+    </div>
+
+    <p class="deadline">Confirmação até dia 20/12</p>
+  </section>
+
+  <!-- ===== LOCAL ===== -->
+  <section class="local-section">
+    <h2 class="section-title">Local</h2>
+
+    <p class="address">
+      R. Parnaríba, SN – Ponta do Farol, São Luís – MA
     </p>
 
-    <a 
-      href="https://open.spotify.com/playlist/0CqH6dppbVbFcnmyiMzpOr?si=TDa9sB5lToeaDOr5kf3jyQ&pt=57972988f984f1b0aa356036c2dfce58&pi=xpeIp9zWRQ2re"
-      target="_blank"
-      class="spotify-btn"
-    >
-      <img src="img/spotify.png" alt="Spotify" class="spotify-icon">
-    </a>
-  </div>
-</section>
-
-<!-- ===== INFO ADICIONAL ===== -->
-<section class="info-section">
-  <h2 class="section-title">Informações Adicionais</h2>
-
-  <div class="info-grid">
-    <div class="info-box">
-      <h3>Lista de Presentes</h3>
-      <p>Lista disponível no link abaixo:<br>(exemplo)</p>
+    <div class="map-box">
+      <div class="map-container">
+        <iframe 
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6352.764447270472!2d-44.2917404!3d-2.4909685!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7f68c49a22e75b5%3A0x608fb79eee1a79!2sVivendas%20Ponta%20do%20Farol!5e1!3m2!1spt-BR!2sbr!4v1764935699305!5m2!1spt-BR!2sbr"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
     </div>
+  </section>
 
-    <div class="info-box">
-      <h3>Dress Code</h3>
-      <p>Casual confortável<br>Evite cores muito escuras</p>
+  <!-- ===== CARDÁPIO ===== -->
+  <section class="cardapio-section">
+    <h2 class="section-title">Cardápio</h2>
+
+    <div class="cardapio-box">
+      <p>
+        Feijoada<br>
+        Salgadinhos<br>
+        Bolo<br>
+      </p>
     </div>
-  </div>
-</section>
+  </section>
 
-<script>
-  // Countdown timer
-  const targetDate = new Date('2026-01-11T12:00:00').getTime();
-  
-  function updateCountdown() {
-    const now = new Date().getTime();
-    const distance = targetDate - now;
-    
-    if (distance < 0) {
-      document.getElementById('days').textContent = '00';
-      document.getElementById('hours').textContent = '00';
-      document.getElementById('minutes').textContent = '00';
-      document.getElementById('seconds').textContent = '00';
-      return;
+  <!-- ===== ATRAÇÕES ===== -->
+  <section class="atracoes-section">
+    <h2 class="section-title">Atrações</h2>
+    <p class="nome-banda">Banda do Rafão</p>
+
+    <div class="atra-box">
+      <img src="img/artista.png" class="atra-img" alt="Artista" />
+
+      <p class="atra-desc">
+        Quer conferir nossa playlist?<br>
+        Disponível também no Spotify!
+      </p>
+
+      <a 
+        href="https://open.spotify.com/playlist/0CqH6dppbVbFcnmyiMzpOr"
+        target="_blank"
+        class="spotify-btn">
+        <img src="img/spotify.png" alt="Spotify" class="spotify-icon">
+      </a>
+    </div>
+  </section>
+
+  <!-- ===== INFO ADICIONAL ===== -->
+  <section class="info-section">
+    <h2 class="section-title">Informações Adicionais</h2>
+
+    <div class="info-grid">
+      <div class="info-box1">
+        <h3>Lista de Presentes</h3>
+        <p>Sem lista!<br>Aqui vale o que você achar a minha cara.<br>Qualquer presente escolhido com carinho já me deixa feliz.
+Para quem quiser dar roupas,
+deixei minhas medidas logo abaixo. O resto, deixo<br>totalmente ao seu gosto</p>
+          <div class="info-medidas">
+            <p>
+              Cabeça: 60 a 62<br>Camisa: GG/XG<br>Calça/Bermuda: 46/48<br>Calçado: 43/44
+            </p>
+          </div>
+      </div>
+
+      <div class="info-box2">
+        <h3>Dress Code</h3>
+        <p>Casual confortável:
+o clima é de barzinho, então venha no seu estilo!</p>
+      </div>
+    </div>
+  </section>  
+
+  <!-- ===== SCRIPT ===== -->
+  <script>
+    // Countdown
+    const targetDate = new Date('2026-01-09T21:00:00').getTime();
+
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const distance = targetDate - now;
+
+      const values = ['days','hours','minutes','seconds'];
+      if (distance < 0) {
+        values.forEach(id => document.getElementById(id).textContent = '00');
+        return;
+      }
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((distance / (1000 * 60)) % 60);
+      const seconds = Math.floor((distance / 1000) % 60);
+
+      document.getElementById('days').textContent = String(days).padStart(2,'0');
+      document.getElementById('hours').textContent = String(hours).padStart(2,'0');
+      document.getElementById('minutes').textContent = String(minutes).padStart(2,'0');
+      document.getElementById('seconds').textContent = String(seconds).padStart(2,'0');
     }
     
-    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-    
-    document.getElementById('days').textContent = String(days).padStart(2, '0');
-    document.getElementById('hours').textContent = String(hours).padStart(2, '0');
-    document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
-    document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
-  }
-  
-  // Atualiza imediatamente
-  updateCountdown();
-  
-  // Atualiza a cada segundo
-  setInterval(updateCountdown, 1000);
-</script>
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+
+    // Sistema de confirmação de presença
+    async function confirmarPresenca(vaiComparecer) {
+      const nome = document.getElementById('nomeConvidado').value.trim();
+      const aviso = document.getElementById('aviso');
+      
+      if (!nome) {
+        aviso.style.display = 'block';
+        setTimeout(() => {
+          aviso.style.display = 'none';
+        }, 3000);
+        return;
+      }
+      
+      aviso.style.display = 'none';
+
+      // URL do Google Apps Script - COLE SUA URL AQUI
+      const scriptURL = 'https://script.google.com/macros/s/AKfycbyUCg7JOIP0zwj2gmQaYh3qYNHMqZnxDgUhMGMnZDakXxgXJ-U6OyqkOUq0qQdHrztXmA/exec';
+
+      // Enviar dados para o Google Sheets
+      try {
+        const response = await fetch(scriptURL, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            nome: nome,
+            presenca: vaiComparecer ? 'Vai' : 'Não vai'
+          })
+        });
+
+        console.log('Dados enviados para a planilha!');
+      } catch (error) {
+        console.error('Erro ao enviar dados:', error);
+      }
+
+      // Redirecionar para WhatsApp com a confirmação
+      const mensagem = vaiComparecer 
+        ? `Olá, sou ${nome} e irei!` 
+        : `Olá, sou ${nome} e não irei`;
+      
+      // SUBSTITUA pelo seu número com código do país + DDD (ex: 5598912345678)
+      const numeroWhatsApp = '559884644441';
+      const linkWhatsApp = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensagem)}`;
+      
+      window.open(linkWhatsApp, '_blank');
+    }
+  </script>
 
 </body>
 </html>
