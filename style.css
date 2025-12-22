@@ -18,7 +18,7 @@ body {
   color: #333; 
   position: relative; 
   overflow-x: hidden;
-  min-height: 100vh;
+  min-height: 100dvh;
   padding-bottom: 30px;
   width: 100%; 
   -webkit-text-size-adjust: 100%;
@@ -1088,21 +1088,17 @@ img {
     appearance: none;
   }
 
-  /* Remove bounce effect no iOS */
-  body,
-  html {
-    position: fixed;
-    overflow: hidden;
-    width: 100%;
-    height: 100%;
-  }
+ html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100dvh;
+  overflow-x: hidden;
+}
 
-  body {
-    position: relative;
-    overflow-y: auto;
-    overflow-x: hidden;
-    height: 100vh;
-  }
+body {
+  overscroll-behavior-y: none; /* bloqueia bounce no iOS */
+ }
 }
 
 /* ===== iPHONE SE (375x667) ===== */
