@@ -12,18 +12,15 @@
 </head>
 
 <body>
+  <div class="folha2"></div>
 
   <!-- ===== FOLHAS DECORATIVAS ===== -->
-  <img src="img/folhas.png" class="folha folha-top-left" alt="">
-  <img src="img/folhas.png" class="folha folha-top-right" alt="">
-  <img src="img/folhas.png" class="folha folha-esq1" alt="">
-  <img src="img/folhas.png" class="folha folha-esq2" alt="">
-  <img src="img/folhas.png" class="folha folha-dir1" alt="">
-  <img src="img/folhas.png" class="folha folha-dir2" alt="">
-  <img src="img/folhas.png" class="folha folha-bottom-left" alt="">
-  <img src="img/folhas.png" class="folha folha-bottom-right" alt="">
-  <img src="img/folhas.png" class="folha folha-bottom-l" alt="">
-  <img src="img/folhas.png" class="folha folha-bottom-r" alt="">
+  <img src="img/folhas.svg" class="folha folha-top-left" alt="">
+  <img src="img/folhas.svg" class="folha folha-top-right" alt="">
+  <img src="img/folhas.svg" class="folha folha-esq1" alt="">
+  <img src="img/folhas.svg" class="folha folha-dir1" alt="">
+  <img src="img/folhas.svg" class="folha folha-bottom-left" alt="">
+  <img src="img/folhas.svg" class="folha folha-bottom-right" alt="">
 
   <!-- IMAGEM DE FUNDO DE DESTAQUE -->
   <img src="img/forma_geometrica.png" alt="" class="fundo-destaque">
@@ -186,30 +183,52 @@
     </div>
   </section>
 
-  <!-- ===== INFO ADICIONAL ===== -->
-  <section class="info-section">
-    <h2 class="section-title">Informações Adicionais</h2>
+<!-- ===== INFO ADICIONAL ===== -->
+<section class="info-section">
+  <h2 class="section-title">Informações Adicionais</h2>
 
-    <div class="info-grid">
-      <div class="info-box1">
-        <h3>Lista de Presentes</h3>
-        <p>Sem lista!<br>Aqui vale o que você achar a minha cara.<br>Qualquer presente escolhido com carinho já me deixa feliz.
-Para quem quiser dar roupas,
-deixei minhas medidas logo abaixo. O resto, deixo<br>totalmente ao seu gosto</p>
-          <div class="info-medidas">
-            <p>
-              Cabeça: 60 a 62<br>Camisa: GG/XG<br>Calça/Bermuda: 46/48<br>Calçado: 43/44
-            </p>
-          </div>
-      </div>
+  <div class="info-grid">
 
-      <div class="info-box2">
-        <h3>Dress Code</h3>
-        <p>Casual confortável:
-o clima é de barzinho, então venha no seu estilo!</p>
-      </div>
+    <div class="info-box1">
+      <h3>Lista de Presentes</h3>
+      <p>
+        Sem lista!<br>Aqui vale o que você achar a minha cara.<br>
+        Qualquer presente escolhido com carinho já me deixa feliz.
+        Para quem quiser dar roupas,
+        deixei minhas medidas logo abaixo. O resto, deixo<br>
+        totalmente ao seu gosto
+      </p>
     </div>
-  </section>  
+
+    <div class="info-medidas">
+      <p>
+        Cabeça: 60 a 62<br>
+        Camisa: GG/XG<br>
+        Calça/Bermuda: 46/48<br>
+        Calçado: 43/44
+      </p>
+    </div>
+
+    <div class="info-box2">
+      <h3>Dress Code</h3>
+      <p>
+        Casual confortável:<br>
+        O clima é de barzinho, então venha no seu estilo!
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<a href="#" onclick="abrirWpp()" class="wpp-circle-btn">
+  <img src="img/whatsapp.png" alt="WhatsApp">
+</a>
+
+<div id="wpp-popup" class="wpp-popup"></div>
+
+</body>
+</html>
+
 
   <!-- ===== SCRIPT ===== -->
   <script>
@@ -289,6 +308,22 @@ o clima é de barzinho, então venha no seu estilo!</p>
       window.open(linkWhatsApp, '_blank');
     }
   </script>
+  <script>
+function abrirWpp() {
+  const popup = document.getElementById("wpp-popup");
+
+  popup.classList.add("show");
+
+  setTimeout(() => {
+    window.open("https://wa.me/5598988771485?text=Olá!%20Quero%20um%20convite%20igual!", "_blank");
+  }, 600); // espera 0.6s antes de abrir
+
+  setTimeout(() => {
+    popup.classList.remove("show");
+  }, 2000); // some depois de 2s
+}
+</script>
+
 
 </body>
 </html>
