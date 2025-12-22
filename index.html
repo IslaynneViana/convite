@@ -296,18 +296,19 @@
         console.error('Erro ao enviar dados:', error);
       }
 
-      // Redirecionar para WhatsApp com a confirmação
-      const mensagem = vaiComparecer 
-        ? `Olá, sou ${nome} comparecerei ao seu aniversário!` 
-        : `Olá, sou ${nome} e infelizmente não comparecerei ao seu aniversário`;
-      
-      // SUBSTITUA pelo seu número com código do país + DDD (ex: 5598912345678)
-      const numeroWhatsApp = '559884644441';
-      const linkWhatsApp = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensagem)}`;
-      
-      window.open(linkWhatsApp, '_blank');
+        const mensagem = vaiComparecer 
+          ? `Olá, sou ${nome} e comparecerei ao seu aniversário!`
+          : `Olá, sou ${nome} e infelizmente não comparecerei ao seu aniversário`;
+
+        const numeroWhatsApp = '559884644441';
+
+        const linkWhatsApp = `https://api.whatsapp.com/send?phone=${numeroWhatsApp}&text=${encodeURIComponent(mensagem)}`;
+
+        location.replace(linkWhatsApp);  // MAIS RÁPIDO QUE location.href
+
     }
   </script>
+  
   <script>
 function abrirWpp() {
   const popup = document.getElementById("wpp-popup");
@@ -316,7 +317,7 @@ function abrirWpp() {
 
   setTimeout(() => {
     window.open("https://wa.me/5598988771485?text=Olá!%20Quero%20um%20convite%20igual!", "_blank");
-  }, 600); // espera 0.6s antes de abrir
+  }, 600); // espera 0.3s antes de abrir
 
   setTimeout(() => {
     popup.classList.remove("show");
