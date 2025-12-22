@@ -25,61 +25,34 @@
   <!-- IMAGEM DE FUNDO DE DESTAQUE -->
   <img src="img/forma_geometrica.png" alt="" class="fundo-destaque">
 
-  <!-- SELO (texto + imagem redonda) -->
+  <!-- SELO -->
   <div class="selo">
-    <!-- Cerveja Esquerda -->
     <img src="img/cerveja.png" class="cerveja-esq" alt="Cerveja">
-    
+
     <svg viewBox="0 0 300 300">
-
       <defs>
-        <!-- Círculo para texto superior (curvado para baixo) -->
-        <path
-          id="circulo-cima"
-          d="M 150,150
-             m -120,0
-             a 120,120 0 0,1 240,0"
-        />
-
-        <!-- Círculo para texto inferior (curvado para cima) -->
-        <path
-          id="circulo-baixo"
-          d="M 150,150
-             m -120,0
-             a 120,120 0 0,0 240,0"
-        />
-
+        <path id="circulo-cima" d="M 150,150 m -120,0 a 120,120 0 0,1 240,0"/>
+        <path id="circulo-baixo" d="M 150,150 m -120,0 a 120,120 0 0,0 240,0"/>
         <clipPath id="foto-redonda">
           <circle cx="150" cy="150" r="65" />
         </clipPath>
       </defs>
 
-      <!-- Texto superior curvado para baixo -->
       <text class="texto-cima">
         <textPath href="#circulo-cima" startOffset="50%" text-anchor="middle">
           Feijoada entre amigos
         </textPath>
       </text>
 
-      <!-- Texto inferior curvado para cima -->
       <text class="texto-baixo">
         <textPath href="#circulo-baixo" startOffset="50%" text-anchor="middle">
           22 anos do Abias
         </textPath>
       </text>
-      
-      <!-- Foto redonda no centro -->
-      <image
-        href="img/foto.png"
-        x="85"
-        y="85"
-        width="130"
-        height="130"
-        clip-path="url(#foto-redonda)"
-      />
+
+      <image href="img/foto.png" x="85" y="85" width="130" height="130" clip-path="url(#foto-redonda)" />
     </svg>
-    
-    <!-- Cerveja Direita -->
+
     <img src="img/cerveja.png" class="cerveja-dir" alt="Cerveja">
   </div>
 
@@ -110,14 +83,8 @@
   <section class="presence-section">
     <h2 class="section-title">Confirme sua <span>Presença</span></h2>
 
-    <!-- Input para nome -->
     <div class="nome-input-wrapper">
-      <input 
-        type="text" 
-        id="nomeConvidado" 
-        class="nome-input" 
-        placeholder="Digite seu nome completo"
-      />
+      <input type="text" id="nomeConvidado" class="nome-input" placeholder="Digite seu nome completo"/>
       <p class="aviso" id="aviso">Por favor, digite seu nome antes de confirmar!</p>
     </div>
 
@@ -126,7 +93,7 @@
       <button class="btn no" onclick="confirmarPresenca(false)">Não vou</button>
     </div>
 
-    <p class="deadline">Confirmação até dia 20/12</p>
+    <p class="deadline">Confirmação até dia 05/01</p>
   </section>
 
   <!-- ===== LOCAL ===== -->
@@ -153,11 +120,7 @@
     <h2 class="section-title">Cardápio</h2>
 
     <div class="cardapio-box">
-      <p>
-        Feijoada<br>
-        Salgadinhos<br>
-        Bolo<br>
-      </p>
+      <p>Feijoada<br>Salgadinhos<br>Bolo<br></p>
     </div>
   </section>
 
@@ -171,66 +134,63 @@
 
       <p class="atra-desc">
         Quer colaborar com nossa playlist?<br>
-        Disponível também no Spotify!
+        Disponível no Spotify!
       </p>
 
-      <a 
-        href="https://open.spotify.com/playlist/0CqH6dppbVbFcnmyiMzpOr"
-        target="_blank"
-        class="spotify-btn">
+      <a href="https://open.spotify.com/playlist/0CqH6dppbVbFcnmyiMzpOr"
+         target="_blank"
+         class="spotify-btn">
         <img src="img/spotify.png" alt="Spotify" class="spotify-icon">
       </a>
     </div>
   </section>
 
-<!-- ===== INFO ADICIONAL ===== -->
-<section class="info-section">
-  <h2 class="section-title">Informações Adicionais</h2>
+  <!-- ===== INFO ADICIONAL ===== -->
+  <section class="info-section">
+    <h2 class="section-title">Informações Adicionais</h2>
 
-  <div class="info-grid">
+    <div class="info-grid">
 
-    <div class="info-box1">
-      <h3>Lista de Presentes</h3>
-      <p>
-        Sem lista!<br>Aqui vale o que você achar a minha cara.<br>
-        Qualquer presente escolhido com carinho já me deixa feliz.
-        Para quem quiser dar roupas,
-        deixei minhas medidas logo abaixo. O resto, deixo<br>
-        totalmente ao seu gosto
-      </p>
+      <div class="info-box1">
+        <h3>Lista de Presentes</h3>
+        <p>
+          Sem lista!<br>
+          Aqui vale o que você achar a minha cara.<br>
+          Qualquer presente escolhido com carinho já me deixa feliz.
+          Para quem quiser dar roupas,
+          deixei minhas medidas logo abaixo.
+          O resto, deixo totalmente ao seu gosto.
+        </p>
+      </div>
+
+      <div class="info-medidas">
+        <p>
+          Cabeça: 60 a 62<br>
+          Camisa: GG/XG<br>
+          Calça/Bermuda: 46/48<br>
+          Calçado: 43/44
+        </p>
+      </div>
+
+      <div class="info-box2">
+        <h3>Dress Code</h3>
+        <p>
+          Casual confortável:<br>
+          O clima é de barzinho, então venha no seu estilo!
+        </p>
+      </div>
+
     </div>
+  </section>
 
-    <div class="info-medidas">
-      <p>
-        Cabeça: 60 a 62<br>
-        Camisa: GG/XG<br>
-        Calça/Bermuda: 46/48<br>
-        Calçado: 43/44
-      </p>
-    </div>
+  <!-- Botão WhatsApp -->
+  <a href="#" onclick="abrirWpp()" class="wpp-circle-btn">
+    <img src="img/whatsapp.png" alt="WhatsApp">
+  </a>
 
-    <div class="info-box2">
-      <h3>Dress Code</h3>
-      <p>
-        Casual confortável:<br>
-        O clima é de barzinho, então venha no seu estilo!
-      </p>
-    </div>
+  <div id="wpp-popup" class="wpp-popup"></div>
 
-  </div>
-</section>
-
-<a href="#" onclick="abrirWpp()" class="wpp-circle-btn">
-  <img src="img/whatsapp.png" alt="WhatsApp">
-</a>
-
-<div id="wpp-popup" class="wpp-popup"></div>
-
-</body>
-</html>
-
-
-  <!-- ===== SCRIPT ===== -->
+  <!-- ===== SCRIPTS ===== -->
   <script>
     // Countdown
     const targetDate = new Date('2026-01-09T21:00:00').getTime();
@@ -259,72 +219,57 @@
     updateCountdown();
     setInterval(updateCountdown, 1000);
 
-    // Sistema de confirmação de presença
+    // Confirmação de presença
     async function confirmarPresenca(vaiComparecer) {
       const nome = document.getElementById('nomeConvidado').value.trim();
       const aviso = document.getElementById('aviso');
       
       if (!nome) {
         aviso.style.display = 'block';
-        setTimeout(() => {
-          aviso.style.display = 'none';
-        }, 3000);
+        setTimeout(() => aviso.style.display = 'none', 3000);
         return;
       }
-      
-      aviso.style.display = 'none';
 
-      // URL do Google Apps Script - COLE SUA URL AQUI
       const scriptURL = 'https://script.google.com/macros/s/AKfycbyUCg7JOIP0zwj2gmQaYh3qYNHMqZnxDgUhMGMnZDakXxgXJ-U6OyqkOUq0qQdHrztXmA/exec';
 
-      // Enviar dados para o Google Sheets
       try {
-        const response = await fetch(scriptURL, {
+        await fetch(scriptURL, {
           method: 'POST',
           mode: 'no-cors',
-          headers: {
-            'Content-Type': 'application/json',
-          },
+          headers: {'Content-Type': 'application/json'},
           body: JSON.stringify({
             nome: nome,
             presenca: vaiComparecer ? 'Vai' : 'Não vai'
           })
         });
+      } catch (e) {}
 
-        console.log('Dados enviados para a planilha!');
-      } catch (error) {
-        console.error('Erro ao enviar dados:', error);
-      }
+      const mensagem = vaiComparecer 
+        ? `Olá, sou ${nome} e comparecerei ao seu aniversário!`
+        : `Olá, sou ${nome} e infelizmente não comparecerei ao seu aniversário`;
 
-        const mensagem = vaiComparecer 
-          ? `Olá, sou ${nome} e comparecerei ao seu aniversário!`
-          : `Olá, sou ${nome} e infelizmente não comparecerei ao seu aniversário`;
+      const numeroWhatsApp = '559884644441';
 
-        const numeroWhatsApp = '559884644441';
+      window.location.href =
+        `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensagem)}`;
+    }
 
-        const linkWhatsApp = `https://api.whatsapp.com/send?phone=${numeroWhatsApp}&text=${encodeURIComponent(mensagem)}`;
+    // Popup WhatsApp
+    function abrirWpp() {
+      const popup = document.getElementById("wpp-popup");
 
-        location.replace(linkWhatsApp);  // MAIS RÁPIDO QUE location.href
+      popup.classList.add("show");
 
+      setTimeout(() => {
+        window.open(
+          "https://wa.me/5598988771485?text=Olá!%20Quero%20um%20convite%20igual!",
+          "_blank"
+        );
+      }, 600);
+
+      setTimeout(() => popup.classList.remove("show"), 2000);
     }
   </script>
-  
-  <script>
-function abrirWpp() {
-  const popup = document.getElementById("wpp-popup");
-
-  popup.classList.add("show");
-
-  setTimeout(() => {
-    window.open("https://wa.me/5598988771485?text=Olá!%20Quero%20um%20convite%20igual!", "_blank");
-  }, 600); // espera 0.3s antes de abrir
-
-  setTimeout(() => {
-    popup.classList.remove("show");
-  }, 2000); // some depois de 2s
-}
-</script>
-
 
 </body>
 </html>
