@@ -230,18 +230,19 @@
         return;
       }
 
-      const scriptURL = 'https://script.google.com/macros/s/AKfycbyUCg7JOIP0zwj2gmQaYh3qYNHMqZnxDgUhMGMnZDakXxgXJ-U6OyqkOUq0qQdHrztXmA/exec';
+      const scriptURL = 'https://script.google.com/macros/s/AKfycbwB4EPKM6vNeyZSQUWqVn3A4EILCqnAfydCfD3-vRq3VMSdP9qmj1-537OYvtd9MUvg8Q/exec'
+
 
       try {
-        await fetch(scriptURL, {
-          method: 'POST',
-          mode: 'no-cors',
-          headers: {'Content-Type': 'application/json'},
-          body: JSON.stringify({
-            nome: nome,
-            presenca: vaiComparecer ? 'Vai' : 'Não vai'
-          })
-        });
+await fetch(scriptURL, {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({
+    nome: nome,
+    presenca: vaiComparecer ? 'Vai' : 'Não vai'
+  })
+});
+
       } catch (e) {}
 
       const mensagem = vaiComparecer 
