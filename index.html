@@ -220,40 +220,85 @@
     setInterval(updateCountdown, 1000);
 
     // Confirmação de presença
-    async function confirmarPresenca(vaiComparecer) {
-      const nome = document.getElementById('nomeConvidado').value.trim();
-      const aviso = document.getElementById('aviso');
-      
-      if (!nome) {
-        aviso.style.display = 'block';
-        setTimeout(() => aviso.style.display = 'none', 3000);
-        return;
-      }
+// IMPORTANTE: Substitua pela URL do seu Google Apps Script
+const SCRIPT_URL = 'https://script.googleusercontent.com/macros/echo?user_content_key=AehSKLjosJrCi1cWeSLFMrBaK3OCImM0vjN03Ple0LBLdzdz6-4u9e668Cup8HA8Emm_x1gklCU6CR-_LVD0x-3beRQlFj7Cy9dc_CRfMYTBS_mrvc89fEmt97K5gTqkmK6JsJksObrDh0TMXd118fnDqriOL12d8HXlrWiNfrhiI_0MaA7xPk8rtsqq29aGMvOZYJHkCFKzx4AkTZmsKpV_fvZ8K4t8-Y-84r98yoqG-3fgKm0uKw_vT1t38dfA8pEiv1tnYSKppqXL3PdFPJK5Mt8l8J3qOM89mUiri0pk&lib=M0b5EkyeuO7p0SNMAL4EKUa7wk99we36t';
 
-      const scriptURL = 'https://script.google.com/macros/s/AKfycbwB4EPKM6vNeyZSQUWqVn3A4EILCqnAfydCfD3-vRq3VMSdP9qmj1-537OYvtd9MUvg8Q/exec'
+// IMPORTANTE: Número do WhatsApp (com DDI e DDD)
+const WHATSAPP_NUMBER = '559884644441';
 
+// Função de confirmação de presença
+async function confirmarPresenca(vaiComparece) {
+  const nomeInput = document.getElementById('nomeConvidado');
+  const aviso = document.getElementById('aviso');
+  const nome = nomeInput.value.trim();
 
-      try {
-await fetch(scriptURL, {
-  method: 'POST',
-  headers: { 'Content-Type': 'application/json' },
-  body: JSON.stringify({
+  console.log('=== INICIANDO CONFIRMAÇÃO ===');
+  console.log('Nome digitado:', nome);
+  console.log('Vai comparecer:', vaiComparece);
+
+  // Valida se o nome foi preenchido
+  if (!nome) {
+    aviso.style.display = 'block';
+    nomeInput.focus();
+    console.log('Nome vazio - abortando');
+    return;
+  }
+
+  // Esconde o aviso se estava visível
+  aviso.style.display = 'none';
+
+  // Define a confirmação
+  const confirmacao = vaiComparece ? 'Vou comparecer' : 'Não vou comparecer';
+  const dataHora = new Date().toLocaleString('pt-BR');
+
+  const dadosParaEnviar = {
     nome: nome,
-    presenca: vaiComparecer ? 'Vai' : 'Não vai'
-  })
-});
+    confirmacao: confirmacao,
+    dataHora: dataHora
+  };
 
-      } catch (e) {}
+  console.log('Dados para enviar:', dadosParaEnviar);
+  console.log('URL do script:', SCRIPT_URL);
 
-      const mensagem = vaiComparecer 
-        ? `Olá, sou ${nome} e comparecerei ao seu aniversário!`
-        : `Olá, sou ${nome} e infelizmente não comparecerei ao seu aniversário`;
+  // Prepara mensagem para WhatsApp
+  const mensagem = vaiComparece
+    ? `Olá! Confirmei minha presença na festa. Meu nome é ${nome} 🎉`
+    : `Olá! Infelizmente não poderei comparecer à festa. Meu nome é ${nome}`;
 
-      const numeroWhatsApp = '559884644441';
+  const whatsappURL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(mensagem)}`;
 
-      window.location.href =
-        `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensagem)}`;
-    }
+  try {
+    console.log('Enviando para Google Sheets...');
+
+    // Envia para o Google Sheets
+    const response = await fetch(SCRIPT_URL, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(dadosParaEnviar)
+    });
+
+    console.log('Resposta recebida:', response);
+    console.log('Status:', response.status);
+
+    // Aguarda 1 segundo para garantir o envio
+    await new Promise(resolve => setTimeout(resolve, 1000));
+
+    console.log('Aguardou 1 segundo - redirecionando...');
+  } catch (error) {
+    console.error('ERRO ao enviar para planilha:', error);
+  }
+
+  // Redireciona para o WhatsApp
+  console.log('Redirecionando para WhatsApp:', whatsappURL);
+  window.location.href = whatsappURL;
+}
+
+
+
+
 
     // Popup WhatsApp
     function abrirWpp() {
